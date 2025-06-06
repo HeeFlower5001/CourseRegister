@@ -1,8 +1,10 @@
 package com.kau.network.CourseRegister.model;
 
-import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 
-@Data
+@Getter
+@AllArgsConstructor
 public class User {
     long id;
     String loginId;
