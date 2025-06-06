@@ -1,4 +1,4 @@
-package com.kau.network.courseregister;
+package com.kau.network.courseRegister;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

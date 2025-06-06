@@ -1,15 +1,21 @@
-package com.kau.network.courseregister.repository;
+package com.kau.network.courseRegister.repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import lombok.Getter;
 import org.springframework.stereotype.Repository;
 
-import com.kau.network.courseregister.model.User;
+import com.kau.network.courseRegister.model.User;
 
+@Getter
 @Repository
 public class UserRepository {
     private final List<User> users = new ArrayList<>();
+
+    public List<User> findAll() {
+        return users;
+    }
 
     public UserRepository() {
         User user;
@@ -40,10 +46,6 @@ public class UserRepository {
         );
 
         users.add(user);
-    }
-
-    public List<User> getUsers() {
-        return users;
     }
 
     public User findById(String id) {
