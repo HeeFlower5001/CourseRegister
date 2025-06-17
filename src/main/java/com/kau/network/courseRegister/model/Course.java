@@ -12,4 +12,8 @@ public class Course {
     private String name;
     private String professor;
     private Queue<User> students;
+
+    public void clearStudentsList() {
+        students.clear();
+    }
 }

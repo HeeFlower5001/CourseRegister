@@ -33,6 +33,16 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
+    public MessageRes deleteAll() {
+        List<Course> courses = courseRepository.findAll();
+
+        for (int i = 0; i < courses.size(); i++) {
+            courses.get(i).clearStudentsList();
+        }
+
+        return new MessageRes("DELETE_ALL_SUCCESS");
+    }
+
     public MessageRes register(CourseReq courseReq) {
         User user = userRepository.findById(courseReq.getUserId());
         Course course = courseRepository.findByCourseName(courseReq.getCourseName());
@@ -51,6 +61,6 @@ public class CourseService {
 
         logRepository.addLog(log);
 
-        return new MessageRes("COURSE_REGISTER_SUCCESSFUL");
+        return new MessageRes("COURSE_REGISTER_SUCCESS");
     }
 }

@@ -10,6 +10,7 @@ import com.kau.network.courseRegister.service.LogService;
 import com.kau.network.courseRegister.service.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.kau.network.courseRegister.model.Course;
@@ -37,6 +38,13 @@ public class CourseController {
     public ResponseEntity<MessageRes> register(@RequestBody CourseReq courseReq) {
         MessageRes message = service.register(courseReq);
 
+
+        return ResponseEntity.ok(message);
+    }
+
+    @DeleteMapping("/course")
+    public ResponseEntity<MessageRes> register() {
+        MessageRes message = service.deleteAll();
 
         return ResponseEntity.ok(message);
     }
