@@ -1,5 +1,7 @@
 package com.kau.network.courseRegister.service;
 
+import com.kau.network.courseRegister.exception.user.UserException;
+import com.kau.network.courseRegister.exception.user.UserExceptions;
 import com.kau.network.courseRegister.model.User;
 import com.kau.network.courseRegister.model.dto.in.LoginReq;
 import com.kau.network.courseRegister.model.dto.out.MessageRes;
@@ -17,22 +19,20 @@ public class UserService {
     }
 
     public List<User> getAllUser() {
-        List<User> users = repository.findAll();
-
-        return users;
+        return repository.findAll();
     }
 
     public MessageRes login(LoginReq loginReq) {
         User user = repository.findById(loginReq.getId());
 
         if (user == null) {
-            return new MessageRes("ID가 존재하지 않습니다.");
+            throw new UserException(UserExceptions.ID_NOT_FOUND);
         }
 
         if (!user.getPw().equals(loginReq.getPw())) {
-            return new MessageRes("PW가 존재하지 않습니다.");
+            throw new UserException(UserExceptions.PASSWORD_MISMATCH);
         }
 
-        return new MessageRes("로그인에 성공했습니다.");
+        return new MessageRes("LOGIN_SUCCESS");
     }
 }

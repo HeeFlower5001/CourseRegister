@@ -17,7 +17,7 @@ public class UserRepository {
         return users;
     }
 
-    public UserRepository() {
+    UserRepository() {
         User user;
 
         user = new User(

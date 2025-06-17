@@ -1,5 +1,6 @@
 package com.kau.network.courseRegister.controller;
 
+import com.kau.network.courseRegister.model.Log;
 import com.kau.network.courseRegister.model.User;
 import com.kau.network.courseRegister.model.dto.in.LoginReq;
 import com.kau.network.courseRegister.model.dto.out.MessageRes;
