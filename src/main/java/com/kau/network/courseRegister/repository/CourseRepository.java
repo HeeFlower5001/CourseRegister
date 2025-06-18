@@ -25,6 +25,13 @@ public class CourseRepository {
 
         return null;
     }
+
+    public void clear() {
+        for (int i = 0; i < courses.size(); i++) {
+            courses.get(i).clearStudentsList();
+        }
+    }
+
     
     public CourseRepository() {
         Course course;

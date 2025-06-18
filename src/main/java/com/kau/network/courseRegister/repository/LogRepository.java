@@ -19,4 +19,8 @@ public class LogRepository {
     public void addLog(Log log) {
         logs.add(log);
     }
+
+    public void clear() {
+        logs.clear();
+    }
 }
